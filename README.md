@@ -5,6 +5,8 @@
 
 [lpc17xx.h docs](https://www-users.cs.york.ac.uk/~pcc/MCP/drivers/html/files.html)
 
+[Pin and Port Mapping](https://www-users.cs.york.ac.uk/~pcc/MCP/MbedPins.html)
+
 ## Note when using Serial on uni computers. You need to use xfce terminal not gnome terminal.
 
 ## Delays
