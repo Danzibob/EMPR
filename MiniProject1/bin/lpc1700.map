@@ -46,7 +46,7 @@ END GROUP
                 0x10000028                PROVIDE (__cs3_heap_start, _end)
                 0x10008000                PROVIDE (__cs3_heap_end, (__cs3_region_start_ram + __cs3_region_size_ram))
 
-.text           0x00000000      0xfa8
+.text           0x00000000     0x1168
  CREATE_OBJECT_SYMBOLS
                 0x00000000                __cs3_region_start_rom = .
  *(.cs3.region-head.rom)
@@ -67,157 +67,167 @@ END GROUP
  .text          0x000000dc        0x0 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crti.o
  .text          0x000000dc       0x30 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crtbegin.o
  .text          0x0000010c        0x0 leds.o
- .text.main     0x0000010c       0x54 leds.o
-                0x0000010c                main
- .text          0x00000160        0x0 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/core_cm3.o
- .text          0x00000160        0x0 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
+ .text.NVIC_SetPriority
+                0x0000010c       0x5c leds.o
+ .text.SysTick_Config
+                0x00000168       0x64 leds.o
+ .text.main     0x000001cc       0xa4 leds.o
+                0x000001cc                main
+ .text.SysTick_Handler
+                0x00000270       0x24 leds.o
+                0x00000270                SysTick_Handler
+ .text.delayms  0x00000294       0x34 leds.o
+                0x00000294                delayms
+ .text.stage1   0x000002c8       0x58 leds.o
+                0x000002c8                stage1
+ .text          0x00000320        0x0 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/core_cm3.o
+ .text          0x00000320        0x0 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
  .text.SystemCoreClockUpdate
-                0x00000160      0x228 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
-                0x00000160                SystemCoreClockUpdate
+                0x00000320      0x228 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
+                0x00000320                SystemCoreClockUpdate
  .text.SystemInit
-                0x00000388      0x240 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
-                0x00000388                SystemInit
- .text          0x000005c8       0x14 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/startup_LPC17xx.o
-                0x000005c8                NMI_Handler
-                0x000005ca                HardFault_Handler
-                0x000005cc                MemManage_Handler
-                0x000005ce                BusFault_Handler
-                0x000005d0                UsageFault_Handler
-                0x000005d2                SVC_Handler
-                0x000005d4                DebugMon_Handler
-                0x000005d6                PendSV_Handler
-                0x000005d8                SysTick_Handler
-                0x000005da                TIMER2_IRQHandler
-                0x000005da                RIT_IRQHandler
-                0x000005da                I2C0_IRQHandler
-                0x000005da                USBActivity_IRQHandler
-                0x000005da                PWM1_IRQHandler
-                0x000005da                I2C1_IRQHandler
-                0x000005da                EINT2_IRQHandler
-                0x000005da                UART1_IRQHandler
-                0x000005da                EINT3_IRQHandler
-                0x000005da                CANActivity_IRQHandler
-                0x000005da                TIMER3_IRQHandler
-                0x000005da                UART0_IRQHandler
-                0x000005da                PLL0_IRQHandler
-                0x000005da                CAN_IRQHandler
-                0x000005da                PLL1_IRQHandler
-                0x000005da                SSP0_IRQHandler
-                0x000005da                I2S_IRQHandler
-                0x000005da                I2C2_IRQHandler
-                0x000005da                RTC_IRQHandler
-                0x000005da                TIMER0_IRQHandler
-                0x000005da                SPI_IRQHandler
-                0x000005da                EINT1_IRQHandler
-                0x000005da                TIMER1_IRQHandler
-                0x000005da                UART2_IRQHandler
-                0x000005da                Default_Handler
-                0x000005da                ADC_IRQHandler
-                0x000005da                SSP1_IRQHandler
-                0x000005da                USB_IRQHandler
-                0x000005da                BOD_IRQHandler
-                0x000005da                WDT_IRQHandler
-                0x000005da                QEI_IRQHandler
-                0x000005da                EINT0_IRQHandler
-                0x000005da                DMA_IRQHandler
-                0x000005da                UART3_IRQHandler
-                0x000005da                MCPWM_IRQHandler
-                0x000005da                ENET_IRQHandler
- .text          0x000005dc       0x30 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libcs3.a(start_c.o)
-                0x000005dc                __cs3_premain
+                0x00000548      0x240 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
+                0x00000548                SystemInit
+ .text          0x00000788       0x14 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/startup_LPC17xx.o
+                0x00000788                NMI_Handler
+                0x0000078a                HardFault_Handler
+                0x0000078c                MemManage_Handler
+                0x0000078e                BusFault_Handler
+                0x00000790                UsageFault_Handler
+                0x00000792                SVC_Handler
+                0x00000794                DebugMon_Handler
+                0x00000796                PendSV_Handler
+                0x0000079a                TIMER2_IRQHandler
+                0x0000079a                RIT_IRQHandler
+                0x0000079a                I2C0_IRQHandler
+                0x0000079a                USBActivity_IRQHandler
+                0x0000079a                PWM1_IRQHandler
+                0x0000079a                I2C1_IRQHandler
+                0x0000079a                EINT2_IRQHandler
+                0x0000079a                UART1_IRQHandler
+                0x0000079a                EINT3_IRQHandler
+                0x0000079a                CANActivity_IRQHandler
+                0x0000079a                TIMER3_IRQHandler
+                0x0000079a                UART0_IRQHandler
+                0x0000079a                PLL0_IRQHandler
+                0x0000079a                CAN_IRQHandler
+                0x0000079a                PLL1_IRQHandler
+                0x0000079a                SSP0_IRQHandler
+                0x0000079a                I2S_IRQHandler
+                0x0000079a                I2C2_IRQHandler
+                0x0000079a                RTC_IRQHandler
+                0x0000079a                TIMER0_IRQHandler
+                0x0000079a                SPI_IRQHandler
+                0x0000079a                EINT1_IRQHandler
+                0x0000079a                TIMER1_IRQHandler
+                0x0000079a                UART2_IRQHandler
+                0x0000079a                Default_Handler
+                0x0000079a                ADC_IRQHandler
+                0x0000079a                SSP1_IRQHandler
+                0x0000079a                USB_IRQHandler
+                0x0000079a                BOD_IRQHandler
+                0x0000079a                WDT_IRQHandler
+                0x0000079a                QEI_IRQHandler
+                0x0000079a                EINT0_IRQHandler
+                0x0000079a                DMA_IRQHandler
+                0x0000079a                UART3_IRQHandler
+                0x0000079a                MCPWM_IRQHandler
+                0x0000079a                ENET_IRQHandler
+ .text          0x0000079c       0x30 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libcs3.a(start_c.o)
+                0x0000079c                __cs3_premain
  .text.cs3.init
-                0x0000060c       0x50 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libcs3.a(start_c.o)
-                0x0000060c                __cs3_start_c
- .text          0x0000065c        0x0 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libcs3unhosted.a(unhosted-start.o)
+                0x000007cc       0x50 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libcs3.a(start_c.o)
+                0x000007cc                __cs3_start_c
+ .text          0x0000081c        0x0 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libcs3unhosted.a(unhosted-start.o)
  .text.cs3.init
-                0x0000065c       0x10 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libcs3unhosted.a(unhosted-start.o)
-                0x0000065c                _start
- .text          0x0000066c       0x50 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libc.a(lib_a-init.o)
-                0x0000066c                __libc_init_array
- .text          0x000006bc        0x0 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x0000081c       0x10 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libcs3unhosted.a(unhosted-start.o)
+                0x0000081c                _start
+ .text          0x0000082c       0x50 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libc.a(lib_a-init.o)
+                0x0000082c                __libc_init_array
+ .text          0x0000087c        0x0 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
  .text.GPIO_GetPointer
-                0x000006bc       0x7c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x0000087c       0x7c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
  .text.FIO_HalfWordGetPointer
-                0x00000738       0x7c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x000008f8       0x7c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
  .text.FIO_ByteGetPointer
-                0x000007b4       0x7c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000974       0x7c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
  .text.GPIO_SetDir
-                0x00000830       0x50 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000830                GPIO_SetDir
+                0x000009f0       0x50 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x000009f0                GPIO_SetDir
  .text.GPIO_SetValue
-                0x00000880       0x2c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000880                GPIO_SetValue
+                0x00000a40       0x2c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000a40                GPIO_SetValue
  .text.GPIO_ClearValue
-                0x000008ac       0x2c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x000008ac                GPIO_ClearValue
+                0x00000a6c       0x2c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000a6c                GPIO_ClearValue
  .text.GPIO_ReadValue
-                0x000008d8       0x30 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x000008d8                GPIO_ReadValue
+                0x00000a98       0x30 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000a98                GPIO_ReadValue
  .text.GPIO_IntCmd
-                0x00000908       0x84 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000908                GPIO_IntCmd
+                0x00000ac8       0x84 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000ac8                GPIO_IntCmd
  .text.GPIO_GetIntStatus
-                0x0000098c       0xc0 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x0000098c                GPIO_GetIntStatus
+                0x00000b4c       0xc0 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000b4c                GPIO_GetIntStatus
  .text.GPIO_ClearInt
-                0x00000a4c       0x40 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000a4c                GPIO_ClearInt
+                0x00000c0c       0x40 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000c0c                GPIO_ClearInt
  .text.FIO_SetDir
-                0x00000a8c       0x28 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000a8c                FIO_SetDir
+                0x00000c4c       0x28 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000c4c                FIO_SetDir
  .text.FIO_SetValue
-                0x00000ab4       0x20 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000ab4                FIO_SetValue
+                0x00000c74       0x20 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000c74                FIO_SetValue
  .text.FIO_ClearValue
-                0x00000ad4       0x20 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000ad4                FIO_ClearValue
+                0x00000c94       0x20 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000c94                FIO_ClearValue
  .text.FIO_ReadValue
-                0x00000af4       0x20 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000af4                FIO_ReadValue
+                0x00000cb4       0x20 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000cb4                FIO_ReadValue
  .text.FIO_IntCmd
-                0x00000b14       0x28 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000b14                FIO_IntCmd
+                0x00000cd4       0x28 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000cd4                FIO_IntCmd
  .text.FIO_GetIntStatus
-                0x00000b3c       0x2c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000b3c                FIO_GetIntStatus
+                0x00000cfc       0x2c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000cfc                FIO_GetIntStatus
  .text.FIO_ClearInt
-                0x00000b68       0x20 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000b68                FIO_ClearInt
+                0x00000d28       0x20 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000d28                FIO_ClearInt
  .text.FIO_SetMask
-                0x00000b88       0x50 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000b88                FIO_SetMask
+                0x00000d48       0x50 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000d48                FIO_SetMask
  .text.FIO_HalfWordSetDir
-                0x00000bd8       0x9c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000bd8                FIO_HalfWordSetDir
+                0x00000d98       0x9c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000d98                FIO_HalfWordSetDir
  .text.FIO_HalfWordSetMask
-                0x00000c74       0x9c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000c74                FIO_HalfWordSetMask
+                0x00000e34       0x9c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000e34                FIO_HalfWordSetMask
  .text.FIO_HalfWordSetValue
-                0x00000d10       0x40 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000d10                FIO_HalfWordSetValue
+                0x00000ed0       0x40 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000ed0                FIO_HalfWordSetValue
  .text.FIO_HalfWordClearValue
-                0x00000d50       0x40 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000d50                FIO_HalfWordClearValue
+                0x00000f10       0x40 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000f10                FIO_HalfWordClearValue
  .text.FIO_HalfWordReadValue
-                0x00000d90       0x44 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000d90                FIO_HalfWordReadValue
+                0x00000f50       0x44 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000f50                FIO_HalfWordReadValue
  .text.FIO_ByteSetDir
-                0x00000dd4       0x70 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000dd4                FIO_ByteSetDir
+                0x00000f94       0x70 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000f94                FIO_ByteSetDir
  .text.FIO_ByteSetMask
-                0x00000e44       0x78 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000e44                FIO_ByteSetMask
+                0x00001004       0x78 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00001004                FIO_ByteSetMask
  .text.FIO_ByteSetValue
-                0x00000ebc       0x3c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000ebc                FIO_ByteSetValue
+                0x0000107c       0x3c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x0000107c                FIO_ByteSetValue
  .text.FIO_ByteClearValue
-                0x00000ef8       0x3c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000ef8                FIO_ByteClearValue
+                0x000010b8       0x3c /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x000010b8                FIO_ByteClearValue
  .text.FIO_ByteReadValue
-                0x00000f34       0x40 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
-                0x00000f34                FIO_ByteReadValue
- .text          0x00000f74        0x0 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crtend.o
- .text          0x00000f74        0x0 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crtn.o
+                0x000010f4       0x40 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x000010f4                FIO_ByteReadValue
+ .text          0x00001134        0x0 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crtend.o
+ .text          0x00001134        0x0 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crtn.o
  *(.plt)
  *(.gnu.warning)
  *(.glue_7t)
@@ -229,70 +239,70 @@ END GROUP
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
  .ARM.extab.cs3.reset
-                0x00000f74        0x0 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/startup_LPC17xx.o
+                0x00001134        0x0 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/startup_LPC17xx.o
  *(.gcc_except_table)
  *(.eh_frame_hdr)
  *(.eh_frame)
-                0x00000f74                . = ALIGN (0x4)
+                0x00001134                . = ALIGN (0x4)
  *(.init)
- .init          0x00000f74        0x4 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crti.o
-                0x00000f74                _init
- .init          0x00000f78        0x8 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crtn.o
-                0x00000f80                . = ALIGN (0x4)
-                0x00000f80                __preinit_array_start = .
+ .init          0x00001134        0x4 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crti.o
+                0x00001134                _init
+ .init          0x00001138        0x8 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crtn.o
+                0x00001140                . = ALIGN (0x4)
+                0x00001140                __preinit_array_start = .
  *(.preinit_array)
-                0x00000f80                __preinit_array_end = .
-                0x00000f80                . = ALIGN (0x4)
-                0x00000f80                __init_array_start = .
+                0x00001140                __preinit_array_end = .
+                0x00001140                . = ALIGN (0x4)
+                0x00001140                __init_array_start = .
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x00000f80        0x4 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crtbegin.o
-                0x00000f84                __init_array_end = .
-                0x00000f84                . = ALIGN (0x4)
+ .init_array    0x00001140        0x4 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crtbegin.o
+                0x00001144                __init_array_end = .
+                0x00001144                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x00000f84                . = ALIGN (0x4)
+                0x00001144                . = ALIGN (0x4)
  *(.fini)
- .fini          0x00000f84        0x4 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crti.o
-                0x00000f84                _fini
- .fini          0x00000f88        0x8 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crtn.o
-                0x00000f90                . = ALIGN (0x4)
-                0x00000f90                __fini_array_start = .
+ .fini          0x00001144        0x4 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crti.o
+                0x00001144                _fini
+ .fini          0x00001148        0x8 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crtn.o
+                0x00001150                . = ALIGN (0x4)
+                0x00001150                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x00000f90        0x4 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crtbegin.o
+ .fini_array    0x00001150        0x4 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crtbegin.o
  *(SORT(.fini_array.*))
-                0x00000f94                __fini_array_end = .
+                0x00001154                __fini_array_end = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
-                0x00000f94                . = ALIGN (0x4)
-                0x00000f94                __cs3_regions = .
-                0x00000f94        0x4 LONG 0x0
-                0x00000f98        0x4 LONG 0xfb0 __cs3_region_init_ram
-                0x00000f9c        0x4 LONG 0x10000000 __cs3_region_start_ram
-                0x00000fa0        0x4 LONG 0x20 __cs3_region_init_size_ram
-                0x00000fa4        0x4 LONG 0x8 __cs3_region_zero_size_ram
-                0x00000fa8                __exidx_start = .
+                0x00001154                . = ALIGN (0x4)
+                0x00001154                __cs3_regions = .
+                0x00001154        0x4 LONG 0x0
+                0x00001158        0x4 LONG 0x1170 __cs3_region_init_ram
+                0x0000115c        0x4 LONG 0x10000000 __cs3_region_start_ram
+                0x00001160        0x4 LONG 0x20 __cs3_region_init_size_ram
+                0x00001164        0x4 LONG 0x8 __cs3_region_zero_size_ram
+                0x00001168                __exidx_start = .
 
-.v4_bx          0x00000fa8        0x0
+.v4_bx          0x00001168        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.ARM.exidx      0x00000fa8        0x8
+.ARM.exidx      0x00001168        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
  .ARM.exidx.cs3.reset
-                0x00000fa8        0x8 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/startup_LPC17xx.o
-                0x00000fb0                __exidx_end = .
+                0x00001168        0x8 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/startup_LPC17xx.o
+                0x00001170                __exidx_end = .
 
-.text.align     0x00000fb0        0x0
-                0x00000fb0                . = ALIGN (0x8)
-                0x00000fb0                _etext = .
+.text.align     0x00001170        0x0
+                0x00001170                . = ALIGN (0x8)
+                0x00001170                _etext = .
                 0x00080000                __cs3_region_size_rom = 0x80000
                 0x00000001                __cs3_region_num = 0x1
 
-.data           0x10000000       0x20 load address 0x00000fb0
+.data           0x10000000       0x20 load address 0x00001170
                 0x10000000                __cs3_region_start_ram = .
  *(.cs3.region-head.ram)
  *(.jcr)
@@ -326,25 +336,27 @@ END GROUP
                 0x10000020                . = ALIGN (0x8)
                 0x10000020                _edata = .
 
-.bss            0x10000020        0x8 load address 0x00000fd0
+.bss            0x10000020        0x8 load address 0x00001190
  *(.shbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
  .bss           0x10000020        0x0 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crti.o
  .bss           0x10000020        0x1 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crtbegin.o
  .bss           0x10000021        0x0 leds.o
- .bss           0x10000021        0x0 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/core_cm3.o
- .bss           0x10000021        0x0 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
- .bss           0x10000021        0x0 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/startup_LPC17xx.o
- .bss           0x10000021        0x0 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libcs3.a(start_c.o)
- .bss           0x10000021        0x0 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libcs3unhosted.a(unhosted-start.o)
- .bss           0x10000021        0x0 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libc.a(lib_a-init.o)
- .bss           0x10000021        0x0 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
- .bss           0x10000021        0x0 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crtend.o
- .bss           0x10000021        0x0 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crtn.o
+ *fill*         0x10000021        0x3 00
+ .bss.timems    0x10000024        0x4 leds.o
+                0x10000024                timems
+ .bss           0x10000028        0x0 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/core_cm3.o
+ .bss           0x10000028        0x0 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
+ .bss           0x10000028        0x0 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/startup_LPC17xx.o
+ .bss           0x10000028        0x0 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libcs3.a(start_c.o)
+ .bss           0x10000028        0x0 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libcs3unhosted.a(unhosted-start.o)
+ .bss           0x10000028        0x0 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libc.a(lib_a-init.o)
+ .bss           0x10000028        0x0 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+ .bss           0x10000028        0x0 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crtend.o
+ .bss           0x10000028        0x0 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2/crtn.o
  *(COMMON)
  *(.ram.b)
                 0x10000028                . = ALIGN (0x8)
- *fill*         0x10000021        0x7 00
                 0x10000028                _end = .
                 0x10000028                __end = .
 
@@ -363,7 +375,7 @@ END GROUP
                 0x10007f00                __cs3_stack_mem
                 0x10008000                _estack = .
                 0x10008000                PROVIDE (estack, .)
-                0x00000fb0                __cs3_region_init_ram = LOADADDR (.data)
+                0x00001170                __cs3_region_init_ram = LOADADDR (.data)
                 0x00000020                __cs3_region_init_size_ram = (_edata - __cs3_region_start_ram)
                 0x00000008                __cs3_region_zero_size_ram = (_end - _edata)
                 0x00008000                __cs3_region_size_ram = 0x8000
@@ -394,75 +406,75 @@ END GROUP
  .comment       0x00000000       0x2b /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
  .comment       0x00000000       0x2b /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
 
-.debug_aranges  0x00000000      0x168
+.debug_aranges  0x00000000      0x190
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x20 leds.o
+                0x00000000       0x48 leds.o
  .debug_aranges
-                0x00000020       0x28 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
+                0x00000048       0x28 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
  .debug_aranges
-                0x00000048       0x28 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/startup_LPC17xx.o
+                0x00000070       0x28 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/startup_LPC17xx.o
  .debug_aranges
-                0x00000070       0xf8 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x00000098       0xf8 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
 
 .debug_pubnames
-                0x00000000      0x282
+                0x00000000      0x2b8
  *(.debug_pubnames)
  .debug_pubnames
-                0x00000000       0x30 leds.o
+                0x00000000       0x66 leds.o
  .debug_pubnames
-                0x00000030       0x4f /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
+                0x00000066       0x4f /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
  .debug_pubnames
-                0x0000007f      0x203 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x000000b5      0x203 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
 
-.debug_info     0x00000000     0x1580
+.debug_info     0x00000000     0x1ada
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0x125 leds.o
- .debug_info    0x00000125       0x68 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/core_cm3.o
- .debug_info    0x0000018d      0x509 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
- .debug_info    0x00000696       0xc1 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/startup_LPC17xx.o
- .debug_info    0x00000757      0xe29 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+ .debug_info    0x00000000      0x67f leds.o
+ .debug_info    0x0000067f       0x68 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/core_cm3.o
+ .debug_info    0x000006e7      0x509 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
+ .debug_info    0x00000bf0       0xc1 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/startup_LPC17xx.o
+ .debug_info    0x00000cb1      0xe29 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
 
-.debug_abbrev   0x00000000      0x3b0
+.debug_abbrev   0x00000000      0x4e2
  *(.debug_abbrev)
- .debug_abbrev  0x00000000       0xab leds.o
- .debug_abbrev  0x000000ab       0x28 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/core_cm3.o
- .debug_abbrev  0x000000d3      0x102 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
- .debug_abbrev  0x000001d5       0x12 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/startup_LPC17xx.o
- .debug_abbrev  0x000001e7      0x1c9 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+ .debug_abbrev  0x00000000      0x1dd leds.o
+ .debug_abbrev  0x000001dd       0x28 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/core_cm3.o
+ .debug_abbrev  0x00000205      0x102 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
+ .debug_abbrev  0x00000307       0x12 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/startup_LPC17xx.o
+ .debug_abbrev  0x00000319      0x1c9 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
 
-.debug_line     0x00000000      0x7fb
+.debug_line     0x00000000      0x8c6
  *(.debug_line)
- .debug_line    0x00000000      0x100 leds.o
- .debug_line    0x00000100       0x1d /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/core_cm3.o
- .debug_line    0x0000011d      0x1e4 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
- .debug_line    0x00000301       0xb1 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/startup_LPC17xx.o
- .debug_line    0x000003b2      0x449 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+ .debug_line    0x00000000      0x1cb leds.o
+ .debug_line    0x000001cb       0x1d /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/core_cm3.o
+ .debug_line    0x000001e8      0x1e4 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
+ .debug_line    0x000003cc       0xb1 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/startup_LPC17xx.o
+ .debug_line    0x0000047d      0x449 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
 
-.debug_frame    0x00000000      0x454
+.debug_frame    0x00000000      0x4e4
  *(.debug_frame)
- .debug_frame   0x00000000       0x30 leds.o
- .debug_frame   0x00000030       0x40 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
- .debug_frame   0x00000070       0x40 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libcs3.a(start_c.o)
- .debug_frame   0x000000b0       0x2c /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libc.a(lib_a-init.o)
- .debug_frame   0x000000dc      0x378 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+ .debug_frame   0x00000000       0xc0 leds.o
+ .debug_frame   0x000000c0       0x40 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
+ .debug_frame   0x00000100       0x40 /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libcs3.a(start_c.o)
+ .debug_frame   0x00000140       0x2c /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/arm-none-eabi/lib/thumb2/libc.a(lib_a-init.o)
+ .debug_frame   0x0000016c      0x378 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
 
-.debug_str      0x00000000      0x792
+.debug_str      0x00000000      0xa36
  *(.debug_str)
- .debug_str     0x00000000       0xbb leds.o
-                                0x101 (size before relaxing)
- .debug_str     0x000000bb       0x42 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/core_cm3.o
+ .debug_str     0x00000000      0x3ef leds.o
+                                0x43a (size before relaxing)
+ .debug_str     0x000003ef       0x42 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/core_cm3.o
                                  0xd2 (size before relaxing)
- .debug_str     0x000000fd      0x21f /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
+ .debug_str     0x00000431      0x18f /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
                                 0x2d5 (size before relaxing)
- .debug_str     0x0000031c      0x476 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+ .debug_str     0x000005c0      0x476 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
                                 0x545 (size before relaxing)
 
-.debug_loc      0x00000000      0x6b0
+.debug_loc      0x00000000      0x7bc
  *(.debug_loc)
- .debug_loc     0x00000000       0x38 leds.o
- .debug_loc     0x00000038       0x58 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
- .debug_loc     0x00000090      0x620 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+ .debug_loc     0x00000000      0x144 leds.o
+ .debug_loc     0x00000144       0x58 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
+ .debug_loc     0x0000019c      0x620 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -522,18 +534,18 @@ LOAD /opt/york/cs/net/sourcery-g++-lite-arm-eabi-2010.09.51-i686-1/bin/../lib/gc
 OUTPUT(bin/leds elf32-littlearm)
 
 .debug_pubtypes
-                0x00000000      0x155
+                0x00000000      0x198
  .debug_pubtypes
-                0x00000000       0x37 leds.o
+                0x00000000       0x7a leds.o
  .debug_pubtypes
-                0x00000037       0x12 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/core_cm3.o
+                0x0000007a       0x12 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/core_cm3.o
  .debug_pubtypes
-                0x00000049       0x57 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
+                0x0000008c       0x57 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
  .debug_pubtypes
-                0x000000a0       0xb5 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+                0x000000e3       0xb5 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
 
-.debug_ranges   0x00000000      0x130
- .debug_ranges  0x00000000       0x10 leds.o
- .debug_ranges  0x00000010       0x18 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
- .debug_ranges  0x00000028       0x20 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/startup_LPC17xx.o
- .debug_ranges  0x00000048       0xe8 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
+.debug_ranges   0x00000000      0x158
+ .debug_ranges  0x00000000       0x38 leds.o
+ .debug_ranges  0x00000038       0x18 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/system_LPC17xx.o
+ .debug_ranges  0x00000050       0x20 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/startup_LPC17xx.o
+ .debug_ranges  0x00000070       0xe8 /opt/york/cs/net/lpc1700-cmsis-lite-2011.01.26-i686-1/lib/libDriversLPC17xxgnu.a(lpc17xx_gpio.o)
